@@ -46,7 +46,8 @@ for i in range(len(pic_first)):
     a=numpy.array(lm1[16])
     b=numpy.array(lm1[0])
     facesize=numpy.linalg.norm(a-b)
-
+    
+#変化前後の顔の特徴量の差分をとる
     for r in range(len(lm2)):
         lm.append((lm2[r][0]-lm1[r][0])/facesize)
         lm.append((lm2[r][1]-lm1[r][1])/facesize)
