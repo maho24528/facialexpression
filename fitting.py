@@ -7,8 +7,8 @@ fileDir = os.path.dirname(os.path.realpath(__file__))
 align = openface.AlignDlib("../openface/models/dlib/shape_predictor_68_face_landmarks.dat")
 
 #import image
-img=cv2.imread("img_000000.png")
-imgname="img_000000"
+img=cv2.imread("maxresdefault.jpg")
+imgname="maxresdefault.jpg"
 
 bb = align.getLargestFaceBoundingBox(img)
 landmarks = align.findLandmarks(img, bb)
@@ -30,4 +30,4 @@ for a in landmarks:
     cv2.circle(img,a,5,(225,0,0),-1)
 
 #画像書き込み
-cv2.imwrite("twoimages.jpg",img)
+cv2.imwrite("twoimages1.jpg",img)
