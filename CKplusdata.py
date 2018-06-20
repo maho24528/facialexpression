@@ -4,15 +4,18 @@ import cv2
 import openface
 import os
 import numpy
-import glob 
 
 fileDir = os.path.dirname(os.path.realpath(__file__))
 align = openface.AlignDlib("../openface/models/dlib/shape_predictor_68_face_landmarks.dat")
+
+#CK+imageが今回比較したい真顔、変化後の顔が入ったファイル
 pic=sorted(os.listdir("/home/docker/CK+image"))
+
+#CKPlusに結果を書き込む
 f=open('CKplus.csv','a')
 writer = csv.writer(f)
 
-
+#.DS.Storeの削除
 print(pic[0])
 pic.pop(0)
 
@@ -20,10 +23,6 @@ pic.pop(0)
 pic_first=pic[0::2]
 #偶数行は変化後の顔
 pic_last=pic[1::2]
-
-print(pic_first)
-print(pic_last)
-
 
 #変化の前後の特徴点を比較
 #landmarksの0と16が顔の横幅
@@ -52,5 +51,6 @@ for i in range(len(pic_first)):
         lm.append((lm2[r][0]-lm1[r][0])/facesize)
         lm.append((lm2[r][1]-lm1[r][1])/facesize)
 
+#CSVへの書き込み
     lm.insert(0,pic_first[i])
     writer.writerow(lm)
