@@ -9,3 +9,6 @@ CKplus.py
 
 CK+test.py
 →CKPlus.pyによって書き込まれたデータについて機械学習(randomforest)を実行するためのプログラム
+
+PCAtest.py
+→画像800枚についての主成分分析を行ったプログラム
